@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<title>Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style type="text/css">
+  body{
+  background: rgb(55,43,6);
+  background: linear-gradient(90deg, rgba(55,43,6,1) 0%, rgba(212,178,110,1) 68%, rgba(255,249,233,1) 100%);
+  }
+  .doughnut{
+    margin-left: 50px;
+    margin-top: 50px;
+    border-radius: 30px;
+    border: 5px solid black;
+    width: 600px;
+    height: 450px;
+    background-color: whitesmoke;  
+  }
+  .bar-chart{
+    margin-left: 670px;
+    margin-top: -450px;
+    border-radius: 30px;
+    border: 5px solid black;
+    width: 600px;
+    height: 450px;
+    background-color: whitesmoke; 
+  }
+  .w3-container{
+    background-color: #87533B;
+
+  }
+  h1{
+    font-family: Times New Roman;
+    margin-top: -50px;
+  }
+  img{
+    height: 150px;
+    width: 150px;
+    margin-left: 15px;
+  }
+  .w3-sidebar {
+      height: 100%;
+      width: 200px;
+      top: 0;
+      left: 0;
+      position: fixed;
+      z-index: 1;
+      background-color: #87533B;
+      padding-top: 20px;
+    }
+
+    .w3-sidebar a {
+      padding: 10px 15px;
+      text-decoration: none;
+      font-size: 18px;
+      color: white;
+      display: block;
+    }
+    .search-bar input {
+      padding: 5px 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-left: 1000px;
+    }
+    .search-bar {
+      align-items: center;
+      margin-top: -90px;
+      padding-top: 100px;
+    }
+
+
+
+</style>
+<body>
+
+<div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:200px;" id="mySidebar">
+
+  <div class="w3-sidebar w3-bar-block">
+    
+    <div class="category-links">
+      <img src="library.png">
+      <a href="#" class="w3-bar-item w3-button">Discover</a>
+      <a href="#" class="w3-bar-item w3-button">Category</a>
+      <a href="#" class="w3-bar-item w3-button">Dashboard</a>
+    </div>
+
+    
+    <div class="category-links">
+      <a href="#" class="w3-bar-item w3-button">Download</a>
+      <a href="#" class="w3-bar-item w3-button">Favorite</a>
+    </div>
+
+    
+    <div class="category-links">
+      <a href="#" class="w3-bar-item w3-button">Help</a>
+      <a href="index.html" class="w3-bar-item w3-button">Log out</a><i class="fas fa-search"></i>
+    </div>
+  </div>
+
+</div>
+
+<div class="w3-main" style="margin-left:200px">
+  <div class="w3-teal">
+    <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
+    <div class="w3-container">
+      <div class="search-bar">
+      <input type="text" placeholder="Search..." aria-label="Search">
+    </div>
+      <h1>Dashboard</h1>
+    </div>
+  </div>
+
+  <script>
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+    }
+
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+    }
+  </script>
+
+  <!-- Doughnut Chart Container -->
+  <div class="doughnut">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+    <script>
+      var xValues = ["Science", "English", "Math", "History", "Fantasy"]; id="uno"
+      var yValues = [55, 49, 44, 24, 15];
+      var barColors = [
+        "#b91d47",
+        "#00aba9",
+        "#2b5797",
+        "#e8c3b9",
+        "#1e7145"
+      ];
+
+      new Chart("myChart", {
+        type: "doughnut",
+        data: {
+          labels: xValues,
+          datasets: [{
+            backgroundColor: barColors,
+            data: yValues
+          }]
+        },
+        options: {
+          title: {
+            display: true,
+            text: "Genre of books borrowed"
+          }
+        }
+      });
+    </script>
+  </div>
+
+  <!-- New Bar Chart Container (example, if needed) -->
+  <div class="bar-chart">
+    <canvas id="myBarChart" style="width:100%;max-width:600px"></canvas>
+    <script>
+      var xValues = ["Student", "Faculty", "Staff"];
+      var yValues = [55, 49, 44, 24];
+      var barColors = [
+        "#b91d47",
+        "#00aba9",
+        "#2b5797"
+      ];
+
+      new Chart("myBarChart", {
+        type: "bar",
+        data: {
+          labels: xValues,
+          datasets: [{
+            backgroundColor: barColors,
+            data: yValues
+          }]
+        },
+        options: {
+          title: {
+            display: true,
+            text: "Number of user's who borrowed books in Library"
+          },
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    </script>
+  </div>
+
+</body>
+</html>

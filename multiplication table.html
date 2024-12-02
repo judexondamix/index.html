@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #007acc;
+        }
+
+        button {
+            background-color: #007acc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #005f99;
+        }
+
+        button:active {
+            background-color: #004d80;
+        }
+    </style>
+</head>
+<body>
+    <h1>Multiplication Table Generator</h1>
+    <button onclick="generateTable()">Start</button>
+
+    <script>
+        function generateTable() {
+            let continueGenerating = true; // Flag to control the loop
+
+            while (continueGenerating) {
+                // Prompt the user to enter a number
+                let number = parseInt(prompt("Enter a number for the multiplication table:"));
+
+                // Validate input
+                if (isNaN(number)) {
+                    alert("Please enter a valid number!");
+                    continue; // Restart the loop
+                }
+
+                let multiplier = 1; // Start with 1
+                let table = "Multiplication Table for " + number + ":\n";
+
+                // Generate multiplication table using a while loop
+                while (multiplier <= 12) {
+                    table += number + " x " + multiplier + " = " + (number * multiplier) + "\n";
+                    multiplier++;
+                }
+
+                // Display the multiplication table
+                alert(table);
+
+                // Ask if the user wants to generate another table
+                let userResponse = prompt("Do you want to generate another table? (yes/no)").toLowerCase();
+
+                if (userResponse !== "yes" || "Yes" || "YES") {
+                    continueGenerating = false; // Exit the loop
+                    alert("Bye!");
+                }
+            }
+        }
+    </script>
+</body>
+</html>

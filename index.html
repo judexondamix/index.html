@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header class="header">
+    <div class="logo">
+      <img src="library.png">
+      <h3>Library Information Management System</h3>
+    </div>
+    <nav class="nav">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>        
+    <div class="search-bar">
+      <a href="login.html">Log-in</a>
+      <input type="text" placeholder="Search..." aria-label="Search">
+    </div>
+  </header>
+
+  <!-- Slideshow Section -->
+  <div class="slideshow-container">
+    <div class="mySlides fade">
+      <div class="numbertext">1 / 3</div>
+      <img src="picture1.webp" style="width:100%" id="uno">
+      <div class="text">"A library is a treasure chest where knowledge is the gold, and every visitor a seeker of riches."</div>
+    </div>
+    <div class="mySlides fade">
+      <div class="numbertext">2 / 3</div>
+      <img src="picture2.webp" style="width:100%" id="dos">
+      <div class="text">"Within the walls of a library, every page turned is a door opened to a world waiting to be discovered."</div>
+    </div>
+    <div class="mySlides fade">
+      <div class="numbertext">3 / 3</div>
+      <img src="picture3.webp" style="width:100%" id="tres">
+      <div class="text">"In a library, you don't just read words; you breathe life into the worlds they create."</div>
+    </div>
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+  </div>
+  <br>
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span> 
+    <span class="dot" onclick="currentSlide(2)"></span> 
+    <span class="dot" onclick="currentSlide(3)"></span> 
+  </div>
+
+  <!-- Image Gallery Section -->
+  <h1>Book Category</h1>
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="library1.webp" alt="Image 1"> 
+      <p> Money/Investing</p>
+    </div>
+    <div class="gallery-item">
+      <img src="library2.webp" alt="Image 2">
+      <p> Design</p>
+    </div>
+    <div class="gallery-item">
+      <img src="library3.webp" alt="Image 3">
+      <p> Business</p>
+    </div>
+    <div class="gallery-item">
+      <img src="library4.webp" alt="Image 4">
+      <p> Self Improvement</p>
+    </div>
+  </div>
+
+  <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}    
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+    }
+  </script> 
+
+  <iframe id="yt" src="https://www.youtube.com/embed/hTLa16ZwgX0?si=G-K_UcB_N4voJFkd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+  <iframe id="mp" src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d246.63206128579824!2d124.65204666745913!3d8.488394700000027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zOMKwMjknMTkuMSJOIDEyNMKwMzknMDYuNiJF!5e0!3m2!1sen!2sph!4v1732764309482!5m2!1sen!2sph" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+  <footer>
+        <p>&copy; 2024 Library Information Management System. All rights reserved.</p>
+        <p>
+            <a href="#privacy-policy">Privacy Policy</a> | 
+            <a href="#terms-of-service">Terms of Service</a> | 
+            <a href="#contact">Contact Us</a>
+        </p>
+        <div>
+      <a href="https://www.facebook.com/" class="fa fa-facebook" style="color: white"></a>
+      <a href="https://x.com/__x?mx=2" class="fa fa-twitter" style="color: white"></a>
+      <a href="https://www.google.com/" class="fa fa-google" style="color: white"></a>
+      <a href="https://www.youtube.com/" class="fa fa-youtube" style="color: white"></a>
+    </div>
+    </footer>
+</body>
+</html>
